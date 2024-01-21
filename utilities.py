@@ -62,7 +62,7 @@ def plot_3D_geometry(sills_xyzR, conduits_xyzz, volume_depth_top, volume_depth_b
     fig = plt.figure(figsize=(14,11))
     
     ax0 = fig.add_subplot(2, 2, 1)
-    ax0.set_title('Top view')
+    ax0.set_title('Vue du dessus')
     circle = plt.Circle((0,0), volume_radius, color='orange', alpha=0.1)
     ax0.add_patch(circle)
     ax0.plot(sills_xyzR[:,0], sills_xyzR[:,1], 'og', ms=12, alpha=0.2)
@@ -77,7 +77,7 @@ def plot_3D_geometry(sills_xyzR, conduits_xyzz, volume_depth_top, volume_depth_b
 
 
     ax1 = fig.add_subplot(2, 2, 2)
-    ax1.set_title('Y view')
+    ax1.set_title('Vue selon Y')
     ax1.axvline(0, color='grey', lw=1)
     #axs[0,1].set_ylim(zmin, zmax)
     #axs[0,1].invert_yaxis()
@@ -102,7 +102,7 @@ def plot_3D_geometry(sills_xyzR, conduits_xyzz, volume_depth_top, volume_depth_b
 
 
     ax2 = fig.add_subplot(2, 2, 3)
-    ax2.set_title('X view')
+    ax2.set_title('Vue selon X')
     ax2.axhline(0, color='grey', lw=1)
     #axs[0,1].set_ylim(zmin, zmax)
     #axs[1,0].invert_yaxis()
@@ -123,7 +123,7 @@ def plot_3D_geometry(sills_xyzR, conduits_xyzz, volume_depth_top, volume_depth_b
     #axs[1,0].set_ylim(ymin, ymax)
 
     ax3 = fig.add_subplot(2, 2, 4, projection='3d',computed_zorder=False)
-    ax3.set_title('3D view')
+    ax3.set_title('Vue 3D')
     for i in range(n_sills):
         ax3.add_patch(matplotlib.patches.Circle((sills_xyzR[i,0], sills_xyzR[i,1]), sills_xyzR[i,3], facecolor="red", alpha=0.3, zorder=-1*sills_xyzR[i,2])).to_3d(z=sills_xyzR[i,2], zdir='z', delta=(0,0,0))
         ax3.plot3D(sills_xyzR[i,0], sills_xyzR[i,1], sills_xyzR[i,2], 'og', ms=12, alpha=0.2)
